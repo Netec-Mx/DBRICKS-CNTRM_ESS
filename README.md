@@ -10,27 +10,27 @@ Te damos la bienvenida a la **plataforma de laboratorios** del curso **nombre**.
  
 Cada uno de estos laboratorios está diseñado para ofrecerte una experiencia práctica. Haz clic en los enlaces para comenzar.
  
-### [Práctica 1. Nombre de la práctica](./Laboratorio_1.md) 
+### [Práctica 1. Nombre de la práctica](1.1 Explorando Azure Databricks/Lab1.md) 
   - **Descripción**: xxx.
   - ⏱️ **Duración estimada**: xx min.
  
-### [Práctica 2. Nombre de la práctica](./Laboratorio_2.md)
+### [Práctica 2. Nombre de la práctica](2.1 Análisis de datos/Lab2.md)
   - **Descripción**: xxx.
   - ⏱️ **Duración estimada**: xx min.
  
-### [Práctica 3. Nombre de la práctica](./Laboratorio_3.md)
+### [Práctica 3. Nombre de la práctica](3.1 Transformar datos con Apache Spark/Lab3.md)
   - **Descripción**: xxx.
   - ⏱️**Duración estimada**: xx min.
  
-### [Práctica 4. Nombre de la práctica](./Laboratorio_4.md)
+### [Práctica 4. Nombre de la práctica](4.1 Manejo de datos con Delta Lake/Lab4.md)
   - **Descripción**: xxx.
   - ⏱️**Duración estimada**: xx min.
  
-### [Práctica 5. Nombre de la práctica](./Laboratorio_5.md)
+### [Práctica 5. Nombre de la práctica](5.1 Creación de pipelines Lakeflow declarativos/Lab5.md)
   - **Descripción**: xxx.
   - ⏱️**Duración estimada**: xx min.
 
-### [Práctica 6. Nombre de la práctica](./Laboratorio_6.md)
+### [Práctica 6. Nombre de la práctica](6.1 Cargas de trabajo con flujos de trabajo/Lab6.md)
   - **Descripción**: xxx.
   - ⏱️**Duración estimada**: xx min.
 
