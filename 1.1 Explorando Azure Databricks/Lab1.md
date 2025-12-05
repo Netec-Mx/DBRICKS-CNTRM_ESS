@@ -147,6 +147,8 @@ style="width:6.1375in;height:3.60972in" />
 style="width:6.1375in;height:2.63125in"
 alt="Un gráfico de barras que muestra el número de productos por categoría" />
 
+---
+
 ### Tarea 4. Analiza datos con un dataframe.
 
 - Aunque la mayoría de los analistas de datos se sienten cómodos usando **código SQL** como en el ejemplo anterior, algunos analistas y científicos de datos pueden emplear objetos nativos de Spark, como un **dataframe**, en lenguajes de programación como **PySpark**, una versión optimizada para Spark de Python, para trabajar eficientemente con datos.
@@ -175,3 +177,4 @@ style="width:6.1375in;height:2.75625in" />
 style="width:6.13542in;height:1.66667in" />
 
 ---
+
