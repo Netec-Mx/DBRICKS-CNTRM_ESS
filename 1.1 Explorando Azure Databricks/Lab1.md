@@ -131,11 +131,11 @@ SELECT \* FROM hive\_metastore.default.products;
 
 **Paso 9.** Encima de la tabla de resultados, selecciona `+` y luego `Visualization` para ver el editor de visualización. Después, aplica las siguientes opciones:
 
-    -   **Visualization type**: Bar.
+-   **Visualization type**: Bar.
 
-    -   **X Column**: Category.
+-   **X Column**: Category.
 
-    -   **Y Column**: *Añade una nueva columna y selecciona*
+-   **Y Column**: *Añade una nueva columna y selecciona*
         **ProductID.** Aplica la agregación de **Count**.
 
 <img src="./media/media/image10.png"
@@ -177,5 +177,6 @@ style="width:6.1375in;height:2.75625in" />
 style="width:6.13542in;height:1.66667in" />
 
 ---
+
 
 
