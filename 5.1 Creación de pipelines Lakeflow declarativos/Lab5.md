@@ -1,15 +1,27 @@
-Lakeflow Spark Declarative Pipelines es un marco dentro de la plataforma
-Databricks Lakehouse para construir y ejecutar pipelines de datos de
-manera declarativa. Esto significa que especificas qué transformaciones
+# Práctica 5. Creación de pipelines lakeflow declarativos
+
+- Lakeflow Spark Declarative Pipelines es un marco dentro de la plataforma Databricks Lakehouse para construir y ejecutar pipelines de datos de manera declarativa. Esto significa que especificas qué transformaciones
 de datos quieres lograr y el sistema automáticamente determina cómo
 ejecutarlas de forma eficiente, gestionando muchas de las complejidades
 de la ingeniería de datos tradicional.
 
-Lakeflow Spark Declarative Pipelines simplifica el desarrollo de
+- Lakeflow Spark Declarative Pipelines simplifica el desarrollo de
 pipelines ETL (Extract, Transform, Load) al abstraer los detalles
 complejos y de bajo nivel. En lugar de escribir código procedimental que
 dicte cada paso, usas una sintaxis declarativa más simple en SQL o
 Python.
+
+## Objetivos de la práctica
+
+- Especificar transformaciones de datos para gestionar complejidades de la ingeniería de datos tradicional.
+
+## Duración aproximada
+
+- 60 minutos.
+
+---
+
+### Tarea 1. Provisión del espacio de trabajo de Azure Databricks.
 
 <span class="mark">**Nota:** La interfaz de usuario de Azure Databricks
 está sujeta a mejoras continuas. La interfaz de usuario puede haber
@@ -21,7 +33,7 @@ Provisión del espacio de trabajo de Azure Databricks
 
 1.  Inicia sesión en el **portal de Azure** en https://portal.azure.com.
 
-2.  En el portal, seleccionar Crear recurso y seleccionar Dtabricks
+2.  En el portal, selecciona Crear recurso y seleccionar Databricks
 
 <img src="./media/media/image1.png"
 style="width:6.1375in;height:0.96875in" />
@@ -44,7 +56,7 @@ style="width:5.14848in;height:4.18787in" />
 
 5.- Esperar cerca de 10 minutos a que termine de crearse.
 
-Crear un clúster
+### Tarea 2. Crear un clúster
 
 1.  En el portal de Azure, navega por el grupo de recursos que contiene
     tu espacio de trabajo existente en Azure Databricks y selecciona tu
@@ -95,7 +107,9 @@ proporcionadas para completar las tareas de este ejercicio.
 
 4.  Espera a que se cree el clúster. Puede que tarde 5 minutos.
 
-Crea un cuaderno para consumir datos
+---
+
+### Tarea 3. Crea un cuaderno para consumir datos
 
 1.  En la barra lateral, usa el **enlace (+) New** para crear un
     **Notebook**.
@@ -113,7 +127,7 @@ Crea un cuaderno para consumir datos
 >
 > **CREATE VOLUME IF NOT EXISTS covid\_data\_volume**
 
-1.  Usa la opción de menú **▸ Ejecutar celda** a la izquierda de la
+4.  Usa la opción de menú **▸ Ejecutar celda** a la izquierda de la
     celda para ejecutarlo. Luego espera a que el trabajo de Spark
     ejecutado por el código se complete.
 
@@ -126,7 +140,7 @@ Crea un cuaderno para consumir datos
 > <img src="./media/media/image8.png"
 > style="width:2.82115in;height:3.286in" />
 
-1.  Conéctate al clúster creado y crea una segunda celda (Python) en el
+5.  Conéctate al clúster creado y crea una segunda celda (Python) en el
     cuaderno e introduce el siguiente código.
 
 > **import requests**
@@ -154,11 +168,11 @@ Crea un cuaderno para consumir datos
 >
 > **f.write(response.content)**
 
-Este código descarga un archivo CSV que contiene datos de COVID-19 desde
+- Este código descarga un archivo CSV que contiene datos de COVID-19 desde
 una URL de GitHub y lo guarda en un volumen de Unity Catalog en
 Databricks usando el contexto actual del catálogo.
 
-1.  Usa la opción de menú **▸ Run cell** a la izquierda de la celda para
+6.  Usa la opción de menú **▸ Run cell** a la izquierda de la celda para
     ejecutarlo. Luego espera a que el trabajo de Spark ejecutado por el
     código se complete. Nuevamente revisa tu catálogo y ahora selecciona
     el volumen. Debe aparecer el archivo csv.
@@ -169,7 +183,9 @@ Databricks usando el contexto actual del catálogo.
 > <img src="./media/media/image10.png"
 > style="width:6.1375in;height:2.43819in" />
 
-Crear Lakeflow Declarative Pipeline usando SQL
+---
+
+### Tarea 4. Crear Lakeflow Declarative Pipeline usando SQL.
 
 1.  Selecciona **Jobs y& Pipelines** en la barra lateral izquierda y
     luego selecciona **Pipeline ETL**.
@@ -177,9 +193,9 @@ Crear Lakeflow Declarative Pipeline usando SQL
 > <img src="./media/media/image11.png"
 > style="width:5.87485in;height:1.51624in" />
 
-1.  Selecciona **Start with an empty file.**.
+2.  Selecciona **Start with an empty file.**.
 
-2.  En el diálogo, selecciona **SQL** como lenguaje para el primer
+3.  En el diálogo, selecciona **SQL** como lenguaje para el primer
     archivo. No tienes que actualizar la ruta de la carpeta. Adelante,
     selecciona el **botón Select**.
 
@@ -187,9 +203,9 @@ Crear Lakeflow Declarative Pipeline usando SQL
 style="width:4.13542in;height:2.30588in"
 alt="Captura de pantalla del diálogo para seleccionar una carpeta para tu código." />
 
-1.  Renombrar el pipeline a **Covid-Pipeline**.
+4.  Renombrar el pipeline a **Covid-Pipeline**.
 
-2.  Introduce el siguiente código en el editor. Asegúrate de cambiar el
+5.  Introduce el siguiente código en el editor. Asegúrate de cambiar el
     nombre del catálogo por el nombre de tu catálogo.
 
 **CREATE OR REFRESH STREAMING TABLE covid\_bronze**
@@ -225,19 +241,19 @@ la nube";**
 
 **);**
 
-Este código establece un pipeline de ingesta en streaming en Databricks
+- Este código establece un pipeline de ingesta en streaming en Databricks
 que lee continuamente nuevos archivos CSV que contienen datos de
 COVID-19 de un volumen del Catálogo Unity e inserta columnas
 seleccionadas en una tabla de streaming llamada covid\_bronze,
 permitiendo el procesamiento y análisis incremental de datos.
 
-1.  Selecciona el botón **Run file** y observa la salida. Si aparece un
+6.  Selecciona el botón **Run file** y observa la salida. Si aparece un
     error, asegúrate de tener el nombre correcto del catálogo definido.
 
 <img src="./media/media/image13.png"
 style="width:3.95735in;height:1.62808in" />
 
-1.  En el mismo editor, introduce el siguiente código (debajo del código
+7.  En el mismo editor, introduce el siguiente código (debajo del código
     anterior).
 
 > **CREATE OR REFRESH MATERIALIZED VIEW covid\_silver(**
@@ -265,7 +281,7 @@ style="width:3.95735in;height:1.62808in" />
 >
 > **FROM covid\_bronze;**
 
-Este código crea o actualiza una **vista materializada** llamada
+- Este código crea o actualiza una **vista materializada** llamada
 covid\_silver que transforma y filtra los datos de la tabla de streaming
 covid\_bronze mediante:
 
@@ -282,12 +298,12 @@ covid\_bronze mediante:
 -   📝 Añadir un comentario para describir el propósito de la vista:
     datos de COVID-19 formateados y filtrados para su análisis.
 
-Esta configuración ayuda a garantizar que haya datos limpios y
+- Esta configuración ayuda a garantizar que haya datos limpios y
 estructurados disponibles para análisis o reportes.
 
-1.  Selecciona el botón **Run File** y observa la salida.
+8.  Selecciona el botón **Run File** y observa la salida.
 
-2.  En el mismo editor, introduce el siguiente código (debajo del código
+9.  En el mismo editor, introduce el siguiente código (debajo del código
     anterior).
 
 > **CREATE OR REFRESH MATERIALIZED VIEW covid\_gold**
@@ -312,7 +328,7 @@ estructurados disponibles para análisis o reportes.
 >
 > **GROUP BY Report\_Date;**
 
-Este código SQL crea o actualiza una vista materializada llamada
+- Este código SQL crea o actualiza una vista materializada llamada
 covid\_gold que proporciona estadísticas agregadas diarias de COVID-19
 para EE. UU. mediante:
 
@@ -324,22 +340,25 @@ para EE. UU. mediante:
 -   💬 Añadir un comentario para describir su propósito: un resumen
     general de los totales diarios para análisis o informes
 
-Esta vista covid\_gold representa la **"capa de oro"** en una
+- Esta vista covid\_gold representa la **"capa de oro"** en una
 arquitectura medallón—optimizada para su consumo mediante paneles,
 informes o modelos de ciencia de datos.
 
-1.  Presionar el botón **Run file** y observa la salida.
+10.  Presionar el botón **Run file** y observa la salida.
 
-2.  Vuelve al Explorador de Catálogos. Abre tu catálogo, el esquema por
+11.  Vuelve al Explorador de Catálogos. Abre tu catálogo, el esquema por
     defecto y examina las diferentes tablas y volúmenes creados.
 
 <img src="./media/media/image14.png"
 style="width:6.1375in;height:1.98125in"
 alt="Captura de pantalla del explorador de catálogos tras cargar datos con la tubería declarativa lakeflow." />
 
-Ver los resultados como una visualización
 
-Después de crear las tablas, es posible cargarlas en dataframes y
+---
+
+### Tarea 5. Ver los resultados como una visualización
+
+- Después de crear las tablas, es posible cargarlas en dataframes y
 visualizar los datos.
 
 1.  En el cuaderno *de Ingestión y Exploración de Datos*, añade una
@@ -350,7 +369,7 @@ visualizar los datos.
 
 **SELECT \* FROM covid\_gold**
 
-1.  Sobre de la tabla de resultados, selecciona **+** y luego selecciona
+2.  Sobre de la tabla de resultados, selecciona **+** y luego selecciona
     **Visualizations** para ver el editor de visualización, y después
     aplica las siguientes opciones:
 
@@ -361,4 +380,5 @@ visualizar los datos.
     -   **Columna Y**: *Añade una nueva columna y selecciona*
         **Total\_Confirmed**. *Aplica la* agregación *de Sum*.
 
-2.  Guarda la visualización y ve la tabla resultante en el cuaderno.
+3.  Guarda la visualización y ve la tabla resultante en el cuaderno.
+
