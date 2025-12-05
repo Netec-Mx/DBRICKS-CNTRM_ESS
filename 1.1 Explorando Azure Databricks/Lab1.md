@@ -1,17 +1,26 @@
-Azure Databricks es una versión basada en Microsoft Azure de la popular
-plataforma de código abierto Databricks.
+# Práctica 1. Explorando Azure Databricks
 
-Un espacio de trabajo *de Azure Databricks* proporciona un punto central
-para gestionar clústeres, datos y recursos de Databricks en Azure.
+- **Azure Databricks** es una versión basada en **Microsoft Azure** de la popular plataforma de código abierto **Databricks**.
+- Un espacio de trabajo de **Azure Databricks** proporciona un punto central para gestionar <ins>clústeres</ins>, <ins>datos</ins> y <ins>recursos</ins> de **Databricks** en Azure.
+- En este ejercicio, provisionarás un espacio de trabajo **Azure Databricks** y explorarás algunas de sus capacidades principales.
 
-En este ejercicio, provisionarás un espacio de trabajo Azure Databricks
-y explorarás algunas de sus capacidades principales.
+## Objetivos de la práctica
 
-Provisión del espacio de trabajo de Azure Databricks
+- Crear un workspace para Databricks.
+- Crear un clúster.
+- Analizar datos con SQL y Python.
 
-1.  Inicia sesión en el **portal de Azure** en https://portal.azure.com.
+## Duración aproximada
 
-2.  En el portal, seleccionar Crear recurso y seleccionar Dtabricks
+- 60 minutos.
+
+---
+
+### Tarea 1. Provisión del espacio de trabajo de Azure Databricks.
+
+**Paso 1.**  Inicia sesión en el [**portal de Azure**](https://portal.azure.com).
+
+**Paso 2.**  En el portal, selecciona `Crear recurso`, luego selecciona `Databricks`.
 
 <img src="./media/media/image1.png"
 style="width:6.1375in;height:0.96875in" />
@@ -19,179 +28,150 @@ style="width:6.1375in;height:0.96875in" />
 <img src="./media/media/image2.png"
 style="width:6.1375in;height:2.89792in" />
 
-> 3.- Seleccionar **Create**
->
-> <img src="./media/media/image3.png"
-> style="width:6.1375in;height:2.06736in" />
+**Paso 3.** Selecciona **`Create`**.
 
-4.- Llenar los datos para crear el grupo de recursos de Azure Databricks
-con los datos propios.
+<img src="./media/media/image3.png"
+style="width:6.1375in;height:2.06736in" />
+
+**Paso 4.** Llena los datos para crear el grupo de recursos de Azure Databricks.
 
 <img src="./media/media/image4.png"
 style="width:6.1375in;height:4.39792in" />
 
-5.- Esperar cerca de 10 minutos a que termine de crearse.
+**Paso 5.** Espera cerca de **10 minutos** a que termine de crearse.
 
-Crear un clúster
+---
 
-Azure Databricks es una plataforma de procesamiento distribuida que
-utiliza clústeres Apache Spark para procesar datos en paralelo en
-múltiples nodos.
+### Tarea 2. Creación de un clúster.
 
-Cada clúster consta de un nodo ***controller*** para coordinar el
-trabajo y nodos ***workers*** para realizar tareas de procesamiento. En
-este ejercicio, crearás un *clúster de un solo nodo* para minimizar los
-recursos de cómputo utilizados en el entorno de laboratorio (en el que
-los recursos pueden estar limitados). En un entorno de producción,
-normalmente crearías un clúster con varios nodos de trabajo.
+- **Azure Databricks** es una <ins>plataforma de procesamiento distribuida</ins> que utiliza **clústeres Apache Spark** para procesar <ins>datos en paralelo</ins> en **múltiples nodos**.
+- Cada clúster consta de un nodo ***controller*** para coordinar el trabajo y nodos ***workers*** para realizar tareas de procesamiento.
+- En este ejercicio, crearás un **clúster de un solo nodo** para minimizar los recursos de cómputo utilizados en el entorno de laboratorio (en el que los recursos pueden estar limitados).
+> En un entorno de producción, normalmente crearías un clúster con varios nodos de trabajo.
 
-1.  En el portal de Azure, navega por el grupo de recursos que contiene
-    tu espacio de trabajo existente en Azure Databricks y selecciona tu
-    recurso de Servicio Azure Databricks.
+**Paso 1.** En el **portal de Azure**, navega por el grupo de recursos que contiene tu espacio de trabajo existente en Azure Databricks y **selecciona tu recurso de Servicio Azure Databricks**.
 
-2.  En la página de Resumen de tu espacio de trabajo, utiliza el botón
-    **Launch Workspace** para abrir tu espacio de trabajo Azure
-    Databricks en una nueva pestaña del navegador; inicia sesión si se
-    lo solicita.
+**Paso 2.** En la página de **Resumen de tu espacio de trabajo**, utiliza el botón **`Launch Workspace`** para abrir tu espacio de trabajo Azure Databricks en una nueva pestaña del navegador. Inicia sesión si es necesario.
 
 <img src="./media/media/image5.png"
 style="width:4.98104in;height:1.42026in" />
 
-Al utilizar el portal Databricks Workspace, pueden mostrarse diversos
-consejos y notificaciones. Cerrar estos y sigue las instrucciones
-proporcionadas para completar las tareas de este ejercicio.
+**Paso 3.** Al utilizar el portal Databricks Workspace, pueden mostrarse diversos consejos y notificaciones, cierra estos.
 
-1.  En la barra lateral de la izquierda, selecciona **(+)** New y luego
-    selecciona **Clúster** (puede que tengas que buscar en el submenú
-    **More**)
+**Paso 4.** En la barra lateral de la izquierda, selecciona `(+) New` y luego selecciona `Clúster` (puede que tengas que buscar en el submenú **More**).
 
-2.  <img src="./media/media/image6.png"
-    style="width:6.1375in;height:2.71667in" />
+<img src="./media/media/image6.png"
+style="width:6.1375in;height:2.71667in" />
 
-3.  En la página de **New Cluster**, crea un nuevo clúster con los
-    siguientes ajustes:
+**Paso 5.** En la página de **New Cluster**, crea un nuevo clúster con los siguientes ajustes:
 
     -   **Computer Name**: *Clúster de nombre de usuario* (el nombre
-        predeterminado del clúster)
+        predeterminado del clúster).
 
-    -   **Policy**: Sin restricciones
+    -   **Policy**: Sin restricciones.
 
     -   **Modo de clúster**: Single node.
 
-    -   **Access mode**: Dedicated (formely: Single user) (*con tu
-        cuenta de usuario seleccionada*)
+    -   **Access mode**: Dedicated (formerly: Single user) (*con tu
+        cuenta de usuario seleccionada*).
 
     -   **Databricks runtime**: 17.3 LTS (Spark 4.0, Scala 2.13) o
-        posterior
+        posterior.
 
-    -   **Photon acceleration**: seleccionado
+    -   **Photon acceleration**: seleccionado.
 
     -   **Tipo de nodo**: Standard\_D4ds\_v5
 
-    -   **Terminate after** *20* **minutes of inactivity**
+    -   **Terminate after** *20* **minutes of inactivity**.
 
-    -   Seleccionar **Create**
+    -   Seleccionar **Create**.
 
-4.  Espera a que se cree el clúster. Puede que tarde uno o dos minutos.
+**Paso 6.** Espera a que se cree el clúster. Puede que tarde **uno o dos minutos**.
 
-Utiliza Spark para analizar datos
+---
 
-Como en muchos entornos Spark, Databricks permite el uso de cuadernos
-para combinar notas y celdas de código interactivas que puedes usar para
-explorar datos.
+### Tarea 3. Utiliza Spark para analizar datos.
 
--   Descarga el archivo products.csv de
-    https://raw.githubusercontent.com/MicrosoftLearning/mslearn-databricks/main/data/products.csv
-    a tu computadora local, guardándolo como **products.csv**.
+- Como en muchos entornos **Spark**, Databricks permite el uso de **cuadernos** para combinar <ins>notas</ins> y <ins>celdas de código</ins> interactivas que puedes usar para explorar datos.
 
--   En la barra lateral, en el menú **(+) New** enlace, selecciona **Add
-    or upload data**.
+**Paso 1.** Descarga el archivo **products.csv** de
 
--   Selecciona **Create or modify table** y sube el archivo
-    **products.csv** que descargaste a tu computadora.
+[https://raw.githubusercontent.com/MicrosoftLearning/mslearn-databricks/main/data/products.csv](https://raw.githubusercontent.com/MicrosoftLearning/mslearn-databricks/main/data/products.csv)
 
--   En la página **Create or modify from file upload**, asegúrate de que
-    tu clúster esté seleccionado en la parte superior derecha de la
-    página. Luego elige el **Catalog** de **hive\_metastore** y su
-    esquema predeterminado para crear una nueva tabla llamada
-    **products**.
+a tu computadora local, guardándolo como **products.csv**.
+
+**Paso 2.** En la barra lateral, en el menú `(+) New`, selecciona `Add or upload data`.
+
+**Paso 3.** Selecciona `Create or modify table` y sube el archivo **products.csv** que descargaste a tu computadora.
+
+**Paso 4.** En la página **Create or modify from file upload**, asegúrate de que tu clúster esté seleccionado en la parte superior derecha de la página. Luego, elige el **Catalog** de **hive\_metastore** y su esquema predeterminado para crear una nueva tabla llamada **products**.
 
 <img src="./media/media/image7.png"
 style="width:6.1375in;height:3.00903in" />
 
--   En la página del **Catalog** **Explorer**, cuando se haya creado la
-    tabla de productos, en el menú del botón **Create**, selecciona
-    **Notebook** para crear un cuaderno.
+**Paso 5.** En la página del **Catalog Explorer**, cuando se haya creado la tabla de productos, en el menú del botón **Create**, selecciona **Notebook** para crear un cuaderno.
 
 <img src="./media/media/image8.png"
 style="width:6.1375in;height:4.20278in" />
 
--   En el cuaderno, asegúrate de que esté conectado a tu clúster
+**Paso 6.** En el cuaderno, asegúrate de que esté conectado a tu clúster.
 
-> <img src="./media/media/image9.png"
-> style="width:6.1375in;height:1.75347in" />
->
-> %sql
->
-> SELECT \* FROM hive\_metastore.default.products;
+<img src="./media/media/image9.png"
+style="width:6.1375in;height:1.75347in" />
 
--   Usa la opción de menú **▸ Run Cell** a la izquierda de la celda para
-    ejecutarlo, iniciando y conectando el clúster si se le pide.
+```
+%sql
 
--   Espera a que el trabajo de Spark ejecutado por el código se
-    complete. El código recupera datos de la tabla que se creó en base
-    al archivo que subiste.
+SELECT \* FROM hive\_metastore.default.products;
+```
 
--   Encima de la tabla de resultados, selecciona **+** y luego
-    selecciona **Visualization** para ver el editor de visualización, y
-    después aplica las siguientes opciones:
+**Paso 7.** Usa la opción de menú **▸ Run Cell** a la izquierda de la celda para ejecutarlo, iniciando y conectando el clúster si es requerido.
 
-    -   **Visualization type**: Bar
+**Paso 8.** Espera a que el trabajo de Spark ejecutado por el código se complete. El código recupera datos de la tabla que se creó con base en el archivo que subiste.
 
-    -   **X Column**: Category
+**Paso 9.** Encima de la tabla de resultados, selecciona `+` y luego `Visualization` para ver el editor de visualización. Después, aplica las siguientes opciones:
+
+    -   **Visualization type**: Bar.
+
+    -   **X Column**: Category.
 
     -   **Y Column**: *Añade una nueva columna y selecciona*
         **ProductID.** Aplica la agregación de **Count**.
 
--   <img src="./media/media/image10.png"
-    style="width:6.1375in;height:3.60972in" />
+<img src="./media/media/image10.png"
+style="width:6.1375in;height:3.60972in" />
 
-Guarda la visualización y observa que se muestra en el cuaderno, así:
+**Paso 10.** Guarda la visualización y observa lo que se muestra en el cuaderno, así:
 
 <img src="./media/media/image11.png"
 style="width:6.1375in;height:2.63125in"
 alt="Un gráfico de barras que muestra el número de productos por categoría" />
 
-Analizar datos con un dataframe
+### Tarea 4. Analiza datos con un dataframe.
 
-Aunque la mayoría de los analistas de datos se sienten cómodos usando
-código SQL como en el ejemplo anterior, algunos analistas y científicos
-de datos pueden emplear objetos nativos de Spark, como un *dataframe*,
-en lenguajes de programación como *PySpark* (una versión optimizada para
-Spark de Python) para trabajar eficientemente con datos.
+- Aunque la mayoría de los analistas de datos se sienten cómodos usando **código SQL** como en el ejemplo anterior, algunos analistas y científicos de datos pueden emplear objetos nativos de Spark, como un **dataframe**, en lenguajes de programación como **PySpark**, una versión optimizada para Spark de Python, para trabajar eficientemente con datos.
 
-1.  En el cuaderno, bajo la gráfica que se produce desde la celda de
-    código ejecutada anteriormente, usa el icono de **+** **Code** para
-    añadir una nueva celda.
+**Paso 1.** En el cuaderno, bajo la gráfica que se produce desde la celda de código ejecutada anteriormente, usa el icono de `+` `Code` para añadir una nueva celda.
+  - Puede que tengas que mover el ratón bajo la celda de salida para que aparezca el icono de `+ Código`.
 
-> Puede que tengas que mover el ratón bajo la celda de salida para que
-> aparezca el **icono del Código +**.
+**Paso 2.** Introduce y ejecuta el siguiente código en la nueva celda:
 
-1.  Introduce y ejecuta el siguiente código en la nueva celda:
+```
+df = spark.sql("SELECT \* FROM products")
 
-> df = spark.sql("SELECT \* FROM products")
->
-> df = df.filter("Category == 'Road Bikes'")
->
-> display(df)
+df = df.filter("Category == 'Road Bikes'")
 
-1.  Ejecuta la nueva célula, que devuelve productos de la categoría *de
-    Road Bikes*.
+display(df)
+```
+
+**Paso 3.** Ejecuta la nueva celda que devuelve productos de la categoría *de Road Bikes*.
 
 <img src="./media/media/image12.png"
 style="width:6.1375in;height:2.75625in" />
 
-Detener la ejecución del clúster.
+**Paso 4.** Deten la ejecución del clúster.
 
 <img src="./media/media/image13.png"
 style="width:6.13542in;height:1.66667in" />
+
+---
