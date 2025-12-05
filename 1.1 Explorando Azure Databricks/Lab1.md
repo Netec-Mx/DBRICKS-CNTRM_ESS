@@ -65,26 +65,26 @@ style="width:6.1375in;height:2.71667in" />
 
 **Paso 5.** En la página de **New Cluster**, crea un nuevo clúster con los siguientes ajustes:
 
-    -   **Computer Name**: *Clúster de nombre de usuario* (el nombre
+-   **Computer Name**: *Clúster de nombre de usuario* (el nombre
         predeterminado del clúster).
 
-    -   **Policy**: Sin restricciones.
+-   **Policy**: Sin restricciones.
 
-    -   **Modo de clúster**: Single node.
+-   **Modo de clúster**: Single node.
 
-    -   **Access mode**: Dedicated (formerly: Single user) (*con tu
+-   **Access mode**: Dedicated (formerly: Single user) (*con tu
         cuenta de usuario seleccionada*).
 
-    -   **Databricks runtime**: 17.3 LTS (Spark 4.0, Scala 2.13) o
+-   **Databricks runtime**: 17.3 LTS (Spark 4.0, Scala 2.13) o
         posterior.
 
-    -   **Photon acceleration**: seleccionado.
+-   **Photon acceleration**: seleccionado.
 
-    -   **Tipo de nodo**: Standard\_D4ds\_v5
+-   **Tipo de nodo**: Standard\_D4ds\_v5
 
-    -   **Terminate after** *20* **minutes of inactivity**.
+-   **Terminate after** *20* **minutes of inactivity**.
 
-    -   Seleccionar **Create**.
+-   Seleccionar **Create**.
 
 **Paso 6.** Espera a que se cree el clúster. Puede que tarde **uno o dos minutos**.
 
@@ -177,4 +177,5 @@ style="width:6.1375in;height:2.75625in" />
 style="width:6.13542in;height:1.66667in" />
 
 ---
+
 
