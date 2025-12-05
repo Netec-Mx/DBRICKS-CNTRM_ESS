@@ -1,14 +1,28 @@
-Los trabajos Lakeflow de Azure Databricks proporcionan una plataforma
+# Práctica 6. Cargas de trabajo con flujos de trabajo
+
+- Los trabajos Lakeflow de Azure Databricks proporcionan una plataforma
 robusta para desplegar cargas de trabajo de forma eficiente. Con
 funciones como Azure Databricks Jobs y Delta Live Tables, los usuarios
 pueden orquestar procesos complejos de procesamiento de datos,
 aprendizaje automático y procesos de análisis.
 
+## Objetivos de la práctica
+
+- Consumir datos a un delta lake.
+- Eplorar registros y "navegar en el tiempo".
+- Crear tablas en catálogos y optimizar el entorno-
+
+## Duración aproximada
+
+- 60 minutos.
+
 <span class="mark">**Nota:** La interfaz de usuario de Azure Databricks
 está sujeta a mejoras continuas. La interfaz de usuario puede haber
 cambiado.</span>
 
-Conectar al workspace creado previamente
+---
+
+### Tarea 1. Conectar al workspace creado previamente
 
 1.  Iniciar sesión en Azure.
 
@@ -16,7 +30,10 @@ Conectar al workspace creado previamente
 
 3.  Seleccionar **Launch Workspace**
 
-Crea un notebook
+
+---
+
+### Tarea 2. Crea un notebook
 
 1.  En la barra lateral, usa el **enlace (+) New** para crear un
     **Notebook**.
@@ -27,7 +44,9 @@ Crea un notebook
     clúster no se está ejecutando, puede tardar un minuto
     aproximadamente en iniciarse.
 
-Datos de ingesta
+---
+
+### Tarea 3. Datos de ingesta
 
 1.  En la primera celda del cuaderno, introduce el siguiente código para
     crear un volumen que almacene algunos archivos de laboratorio.
@@ -72,11 +91,11 @@ Datos de ingesta
 >
 > **f.write(response.content)**
 
-1.  Usa la opción de menú **Run cell** a la izquierda de la celda para
+2.  Usa la opción de menú **Run cell** a la izquierda de la celda para
     ejecutarlo. Luego espera a que el trabajo de Spark ejecutado por el
     código se complete.
 
-2.  Bajo la salida, utiliza el icono **+ Code** para añadir una nueva
+3.  Bajo la salida, utiliza el icono **+ Code** para añadir una nueva
     celda de código y úsalo para ejecutar el siguiente código, que
     define un esquema para los datos:
 
@@ -112,7 +131,9 @@ format='csv', schema=orderSchema)**
 
 **display(df.limit(100))**
 
-Crear un job task
+---
+
+### Tarea 4. Crear un job task
 
 1.  Bajo la celda de código existente, utiliza el icono **+Code** para
     añadir una nueva celda de código. Luego, en la nueva celda,
@@ -134,7 +155,7 @@ duplicarse tras realizar el cálculo. Dado que double tiene un uso de
 memoria mayor que float, es mejor para el rendimiento hacer cast de la
 columna de vuelta a flotante.
 
-1.  En una nueva celda de código, ejecuta el siguiente código para
+2.  En una nueva celda de código, ejecuta el siguiente código para
     agregar y agrupar los datos de orden:
 
 **yearlySales =
@@ -142,7 +163,9 @@ df.select(year("OrderDate").alias("Year")).groupBy("Year").count().orderBy("Year
 
 **display(yearlySales)**
 
-Construye el flujo de trabajo
+---
+
+### Tarea 5. Construye el flujo de trabajo
 
 Azure Databricks gestiona la orquestación de tareas, la gestión de
 clústeres, la monitorización y el reporte de errores para todos tus
@@ -186,3 +209,5 @@ Además, puedes ejecutar jobs de forma desencadenada, por ejemplo,
 ejecutando un flujo de trabajo con un calendario. Para programar una
 ejecución periódica de trabajos, puedes abrir la tarea y añadir un
 trigger.
+
+---
