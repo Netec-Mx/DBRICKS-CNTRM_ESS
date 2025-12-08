@@ -171,10 +171,11 @@ display(yearlySales)
 
 **Paso 7.** Cuando el job se ejecuta, puedes monitorearlo seleccionando `Job Runs` en la barra lateral izquierda.
 
-**Paso 1.** Después de que la ejecución del trabajo tenga éxito, puedes seleccionarlo y verificar su salida.
+**Paso 8.** Después de que la ejecución del trabajo tenga éxito, puedes seleccionarlo y verificar su salida.
 
 - Además, puedes ejecutar **jobs** de forma **desencadenada**, por ejemplo, ejecutando un flujo de trabajo con un calendario.
 - Para programar una **ejecución periódica** de trabajos, puedes abrir la tarea y añadir un **trigger**.
 
 ---
+
 
