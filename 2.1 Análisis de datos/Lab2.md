@@ -29,7 +29,7 @@
 **Paso 2.** Cambia el nombre predeterminado del cuaderno (Cuaderno sin título *\[fecha\]*) a **Explorar datos con Spark** y, en la lista desplegable **Connect**, selecciona tu grupo si aún no está seleccionado.
 
 <img src="./media/media/image1.png"
-style="width:6.1375in;height:1.25139in" />
+style="width:6.1375in;height:1.25139in"/>
 
 ---
 
@@ -52,10 +52,10 @@ https://raw.githubusercontent.com/MicrosoftLearning/mslearn-databricks/main/data
 
 wget -O /dbfs/spark\_lab/2021.csv
 <https://raw.githubusercontent.com/MicrosoftLearning/mslearn-databricks/main/data/2021.csv>
+```
 
 <img src="./media/media/image2.png"
-style="width:6.1375in;height:2.49097in" />
-```
+style="width:6.1375in;height:2.49097in"/>
 
 **Paso 2.** Usa la opción de menú **▸ Run Cell** a la izquierda de la celda para ejecutarlo. Luego, espera a que el trabajo de Spark ejecutado por el código se complete.
 
@@ -72,7 +72,7 @@ display(df.limit(100))
 ```
 
 <img src="./media/media/image3.png"
-style="width:6.1375in;height:2.72847in" />
+style="width:6.1375in;height:2.72847in"/>
 
 **Paso 2.** Consulta la salida y ten en cuenta que los datos del archivo están relacionados con órdenes de venta, pero no incluyen los encabezados de columna ni información sobre los tipos de datos. Para entender mejor los datos, puedes definir un **esquema** para el dataframe.
 
@@ -112,7 +112,7 @@ display(df.limit(100))
 ```
 
 <img src="./media/media/image4.png"
-style="width:6.1375in;height:3.63958in" />
+style="width:6.1375in;height:3.63958in"/>
 
 **Paso 4.** Observa que, esta vez, el dataframe incluye encabezados de columna. Luego, añade una nueva celda de código y úsala para ejecutar el siguiente código que muestre los detalles del esquema del dataframe y verifique que se hayan aplicado los tipos de datos correctos:
 
@@ -121,7 +121,7 @@ df.printSchema()
 ```
 
 <img src="./media/media/image5.png"
-style="width:4.52146in;height:3.30254in" />
+style="width:4.52146in;height:3.30254in"/>
 
 ---
 
@@ -138,7 +138,7 @@ display(spark\_df)
 ```
 
 <img src="./media/media/image6.png"
-style="width:6.1375in;height:2.26458in" />
+style="width:6.1375in;height:2.26458in"/>
 
 El código que acabas de ejecutar crea una vista relacional de los datos en un dataframe y luego usa la biblioteca **spark.sql** para incrustar la sintaxis SQL de Spark en tu código Python, consultar la vista y devolver los resultados como dataframe.
 
@@ -159,7 +159,7 @@ SELECT \* FROM salesorders
 ```
 
 <img src="./media/media/image7.png"
-style="width:6.1375in;height:2.53056in" />
+style="width:6.1375in;height:2.53056in"/>
 
 **Paso 2.** Sobre la tabla de resultados, selecciona `+` y luego selecciona `Visualization` para ver el editor de visualización, después, aplica las siguientes opciones:
 
@@ -172,7 +172,7 @@ style="width:6.1375in;height:2.53056in" />
 **Paso 3.** Guarda la visualización. Luego, vuelve a ejecutar la celda de código para ver el gráfico resultante en el cuaderno.
 
 <img src="./media/media/image8.png"
-style="width:6.1375in;height:2.57014in" />
+style="width:6.1375in;height:2.57014in"/>
 
 ---
 
@@ -197,7 +197,7 @@ df\_spark.show()
 ```
 
 <img src="./media/media/image9.png"
-style="width:6.1375in;height:3.6125in" />
+style="width:6.1375in;height:3.6125in"/>
 
 **Paso 2.** Añade una nueva celda de código y úsala para ejecutar el siguiente código, que importa la **matplotlib** y la utiliza para crear un gráfico:
 
@@ -219,7 +219,7 @@ plt.show()
 ```
 
 <img src="./media/media/image10.png"
-style="width:3.61854in;height:4.00756in" />
+style="width:3.61854in;height:4.00756in"/>
 
 **Paso 3.** Revisa los resultados, consisten en un cuadro de columnas con el ingreso bruto total de cada año. Observa las siguientes características del código utilizado para producir este gráfico:
 
@@ -257,7 +257,7 @@ plt.show()
 ```
 
 <img src="./media/media/image11.png"
-style="width:3.83708in;height:3.94214in" />
+style="width:3.83708in;height:3.94214in"/>
 
 **Paso 5.** Técnicamente, una trama (plot) está contenida con una **Figure**. En los ejemplos anteriores, la figura fue creada implícitamente para ti, pero puedes crearlo explícitamente. Prueba a ejecutar lo siguiente en una celda nueva:
 
@@ -294,7 +294,7 @@ plt.show()
 ```
 
 <img src="./media/media/image12.png"
-style="width:4.63725in;height:4.27206in" />
+style="width:4.63725in;height:4.27206in"/>
 
 **Paso 6.** Una figura puede contener múltiples subplots, cada una en su propio eje. Utiliza este código para crear múltiples gráficos:
 
@@ -334,7 +334,7 @@ plt.show()
 ```
 
 <img src="./media/media/image13.png"
-style="width:4.71124in;height:4.08969in" />
+style="width:4.71124in;height:4.08969in"/>
 
 **Nota.** Para saber más sobre el trazado con matplotlib, consulta la [documentación de matplotlib](https://matplotlib.org/).
 
@@ -359,7 +359,7 @@ plt.show()
 ```
 
 <img src="./media/media/image14.png"
-style="width:4.19545in;height:4.35377in" />
+style="width:4.19545in;height:4.35377in"/>
 
 **Paso 2.** La biblioteca **Seaborn** facilita la creación de gráficos complejos de datos estadísticos y te permite controlar el tema visual para visualizaciones de datos consistentes. Ejecuta el siguiente código en una nueva celda:
 
@@ -380,7 +380,7 @@ plt.show()
 ```
 
 <img src="./media/media/image15.png"
-style="width:3.54479in;height:3.99414in" />
+style="width:3.54479in;height:3.99414in"/>
 
 **Paso 3.** Como matplotlib, Seaborn admite múltiples tipos de cartas. Ejecuta el siguiente código para crear un gráfico de líneas:
 
@@ -397,10 +397,11 @@ plt.show()
 ```
 
 <img src="./media/media/image16.png"
-style="width:4.12994in;height:4.39543in" />
+style="width:4.12994in;height:4.39543in"/>
 
 **Nota.** Para saber más sobre cómo trazar con Seaborn, consulta la [documentación de seaborn](https://seaborn.pydata.org/index.html).
 
 **Paso 4.** Cerrar la ejecución del servidor
 
 ---
+
