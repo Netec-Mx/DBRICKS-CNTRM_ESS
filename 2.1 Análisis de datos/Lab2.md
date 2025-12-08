@@ -14,11 +14,11 @@
 
 ### Tarea 1. Conectar al workspace creado previamente.
 
-**Paso 1.** Iniciar sesión en Azure.
+**Paso 1.** Inicia sesión en Azure.
 
-**Paso 2.** Entrar al servicio de Azure Databricks creado previamente.
+**Paso 2.** Entra al servicio de Azure Databricks creado previamente.
 
-**Paso 3.** Seleccionar `Launch Workspace`.
+**Paso 3.** Selecciona `Launch Workspace`.
 
 ---
 
@@ -26,7 +26,7 @@
 
 **Paso 1.** En la barra lateral, usa el enlace `New (+)` para crear un **Notebook**.
 
-**Paso 2.** Cambia el nombre predeterminado del cuaderno (Cuaderno sin título *\[fecha\]*) a **Explorar datos con Spark** y, en la lista desplegable **Connect**, selecciona tu grupo si aún no está seleccionado.
+**Paso 2.** Cambia el nombre predeterminado del cuaderno (Cuaderno sin título *\[fecha\]*) a **Explorar datos con Spark** y, en la lista desplegable `Connect`, selecciona tu grupo si aún no está seleccionado.
 
 <img src="./media/media/image1.png"
 style="width:6.1375in;height:1.25139in"/>
@@ -57,7 +57,7 @@ wget -O /dbfs/spark\_lab/2021.csv
 <img src="./media/media/image2.png"
 style="width:6.1375in;height:2.49097in"/>
 
-**Paso 2.** Usa la opción de menú **▸ Run Cell** a la izquierda de la celda para ejecutarlo. Luego, espera a que el trabajo de Spark ejecutado por el código se complete.
+**Paso 2.** Usa la opción de menú `▸ Run Cell` a la izquierda de la celda para ejecutarlo. Luego, espera a que el trabajo de Spark ejecutado por el código se complete.
 
 ---
 
@@ -114,7 +114,7 @@ display(df.limit(100))
 <img src="./media/media/image4.png"
 style="width:6.1375in;height:3.63958in"/>
 
-**Paso 4.** Observa que, esta vez, el dataframe incluye encabezados de columna. Luego, añade una nueva celda de código y úsala para ejecutar el siguiente código que muestre los detalles del esquema del dataframe y verifique que se hayan aplicado los tipos de datos correctos:
+**Paso 4.** Observa que, esta vez, el dataframe incluye encabezados de columna. Luego, añade una nueva celda de código y úsala para ejecutar el siguiente código que muestre los detalles del esquema del dataframe y verifica que se hayan aplicado los tipos de datos correctos:
 
 ```
 df.printSchema()
@@ -404,4 +404,5 @@ style="width:4.12994in;height:4.39543in"/>
 **Paso 4.** Cerrar la ejecución del servidor
 
 ---
+
 
